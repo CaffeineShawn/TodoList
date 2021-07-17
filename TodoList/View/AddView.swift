@@ -21,7 +21,7 @@ struct AddView: View {
                 TextField("Tryna type something", text: $textFieldText)
                     .padding(.horizontal)
                     .frame(height:55)
-                    .background(Color(#colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)))
+                    .background(Color(UIColor.secondarySystemBackground))
                     .cornerRadius(10)
                 
                 Button(action: saveButtonPressed, label: {
@@ -71,7 +71,14 @@ struct AddView_Previews: PreviewProvider {
             NavigationView {
                 AddView()
             }
+            .preferredColorScheme(.light)
             .environmentObject(ListViewModel())
+            NavigationView {
+                AddView()
+            }
+            .preferredColorScheme(.dark)
+            .environmentObject(ListViewModel())
+           
             
         }
     }
